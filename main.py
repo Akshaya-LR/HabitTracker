@@ -45,7 +45,7 @@ date_time = datetime.now()
 
 pixel_params = {
     "date": date_time.strftime("%Y%m%d"),
-    "quantity": "115",
+    "quantity": input("How many minutes did you code today? "),
 }
 
 # api_response = requests.post(url=pixel_endpoint, json=pixel_params, headers=head)
@@ -59,3 +59,8 @@ update_params = {
 
 # api_response = requests.put(url=update_pixel, json=update_params, headers=head)
 # print(api_response.text)
+
+delete_pixel = f"{app_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date_time.strftime('%Y%m%d')}"
+
+api_response = requests.delete(url=delete_pixel, headers=head)
+print(api_response.text)
